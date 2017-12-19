@@ -37,7 +37,7 @@ public abstract class UsageData {
     private static String PREFIX = "CloudStack";
 
     @Expose
-    private String _class;
+    private String metric;
 
     // Name of the account
     @Expose
@@ -57,7 +57,8 @@ public abstract class UsageData {
 
     // Metadata container
     @Expose
-    private Map metadata;
+    private Map data;
+
 
     //////////////////////////////////////////////////////
     //==== everything below this goes into metadata ====//
@@ -107,14 +108,14 @@ public abstract class UsageData {
         map.values().removeAll(Collections.singleton(null));
     }
 
-    public String get_class() {
-        return _class;
+    public String getMetric() {
+        return metric;
     }
-    public void set_class(String _class) {
-        this._class = _class;
+    public void setMetric(String metric) {
+        this.metric = metric;
     }
     protected void setClassName() {
-        this.set_class(String.format("%s%s",UsageData.PREFIX, this.getClass().getSimpleName()));
+        this.setMetric(String.format("%s%s",UsageData.PREFIX, this.getClass().getSimpleName()));
     }
 
     /**
@@ -153,20 +154,21 @@ public abstract class UsageData {
         addToMetadata("offeringId", offeringid);
 
         // ask children to add their metadata
-        additionalMetadata(metadata);
+        additionalMetadata(data);
     }
 
     protected abstract void additionalMetadata(Map map);
 
     protected void addToMetadata(String str, Object obj) {
-        if (metadata == null) {
-            metadata = new HashMap<>();
+        if (data == null) {
+            data = new HashMap<>();
         }
 
         // don't add null objects
         if (str != null && !str.isEmpty() && obj != null) {
-            metadata.put(str, obj);
+            data.put(str, obj);
         }
+
     }
 
     /////////////////////////////
@@ -291,7 +293,7 @@ public abstract class UsageData {
     }
 
     public Map getMetadata() {
-        return metadata;
+        return data;
     }
 
     public Object getUnit() {
