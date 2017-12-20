@@ -60,6 +60,8 @@ public class GsonMapping {
                             return ISO.class;
                         case 9:
                             return Snapshot.class;
+                        case 10:
+                            return SecurityGroup.class;
                         case 11:
                             return LoadBalancer.class;
                         case 12:
