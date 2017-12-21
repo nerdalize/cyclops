@@ -16,73 +16,10 @@
  */
 package ch.icclab.cyclops.model;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * Author: Martin Skoviera
  * Created on: 15-Oct-15
  * Description: POJO object for Virtual Machine Usage Data, both type 1 (Running) and 2 (Allocated)
  */
 
-public class VMRunning extends UsageData {
-
-    // The ID of the virtual machine
-    private String virtualmachineid;
-
-    // The name of the virtual machine
-    private String name;
-
-    // The ID of the template or the ID of the parent template. The parent template value is present when the current template was created from a volume.
-    private String templateid;
-
-    // Hypervisor
-    private String type;
-
-    /////////////////////////////
-    // Getters and Setters
-
-    public String getVirtualmachineid() {
-        return virtualmachineid;
-    }
-
-    public void setVirtualmachineid(String virtualmachineid) {
-        this.virtualmachineid = virtualmachineid;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getTemplateid() {
-        return templateid;
-    }
-
-    public void setTemplateid(String templateid) {
-        this.templateid = templateid;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    @Override
-    protected void additionalMetadata(Map map) {
-        if (type != null)
-            map.put("type", type);
-        if (name != null)
-            map.put("name", name);
-        if (templateid != null)
-            map.put("templateId", templateid);
-        if (virtualmachineid != null)
-            map.put("virtualmachineId", virtualmachineid);
-    }
-}
+public class VMRunning extends VM {}
