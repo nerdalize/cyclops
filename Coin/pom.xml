@@ -297,6 +297,11 @@
             <artifactId>disruptor</artifactId>
             <version>3.3.5</version>
         </dependency>
+        <dependency> <!-- Nerdalize -->
+            <groupId>io.sentry</groupId>
+            <artifactId>sentry-log4j2</artifactId>
+            <version>1.7.5</version>
+        </dependency>
     </dependencies>
 
 </project>

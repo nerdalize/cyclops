@@ -246,5 +246,10 @@
             <artifactId>disruptor</artifactId>
             <version>${lmax-version}</version>
         </dependency>
+        <dependency> <!-- Nerdalize -->
+            <groupId>io.sentry</groupId>
+            <artifactId>sentry-log4j2</artifactId>
+            <version>1.7.5</version>
+        </dependency>
     </dependencies>
 </project>

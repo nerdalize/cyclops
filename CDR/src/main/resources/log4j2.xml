@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration>
+<Configuration packages="io.sentry.log4j2"> <!-- Nerdalize -->
     <Appenders>
         <Console name="STDOUT" target="SYSTEM_OUT">
             <PatternLayout pattern="[ %-6p] %d{yyyy-MM-dd HH:mm:ss} - %m%n"/>
@@ -7,10 +7,12 @@
         <Console name="STDERR" target="SYSTEM_ERR">
             <PatternLayout pattern="[ %-6p] %d{yyyy-MM-dd HH:mm:ss} - %m%n"/>
         </Console>
+        <Sentry name="Sentry" /> <!-- Nerdalize -->
     </Appenders>
     <Loggers>
         <Root level="ERROR">
-            <AppenderRef ref="STDERR" level="ERROR"/>
+            <appender-ref ref="STDERR" level="ERROR"/>
+            <appender-ref ref="Sentry" level="ERROR"/> <!-- Nerdalize -->
         </Root>
         <logger name="ch.icclab.cyclops" level="ALL">
             <appender-ref ref="STDOUT" level="TRACE"/>
