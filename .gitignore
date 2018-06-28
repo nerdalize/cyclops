@@ -5,3 +5,12 @@ target
 *.iml
 .DS_Store
 _build
+
+# Log file
+*.log
+
+# JAVA IDE
+.project
+.classpath
+.settings
+.factorypath
